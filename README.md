@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/DanielTeshager/interactive-rating-component)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Full code: [Github](https://github.com/DanielTeshager/interactive-rating-component)
+- Live Site: [Tiny Rating Component](https://zesty-pie-462302.netlify.app/)
 
 ### Built with
 
