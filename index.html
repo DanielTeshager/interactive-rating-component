@@ -6,44 +6,202 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Frontend Mentor | Interactive rating component</title>
+  <title>Interactive rating component</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
+    *{
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    main{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      background: #141519;
+      overflow: auto;
+    }
+    .container-box{
+      max-width: 408px;
+      background: linear-gradient(30deg, #141519, #1f2630);
+      border-radius: 30px;
+      padding: 20px;
+      padding: 33px 33px 20px 33px;
+
+    }
+    .container-box .rating{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      list-style: none;
+      margin-bottom: 30px;
+
+    }
+    .rating li{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: rgb(29,36,46);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .rating li:hover{
+      cursor: pointer;
+      background: #7e8798;
+      color: white;
+    }
+    .rating li.active{
+      background:#fc7613;
+      color: white;
+    }
+    .start{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: rgb(29,36,46);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 37px;
+    }
+    .container-box h2{
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .container-box p{
+      font-size: 14px;
+      margin-bottom: 33px;
+      line-height: 1.5;
+    }
+    .btn-primary{
+      width: 100%;
+      height: 50px;
+      border-radius: 50px;
+      background: #fc7613;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary:active{
+      background: white;
+      color:#fc7613;
+    }
+
+    /* box 2 */
+    .img-container{
+      width: 163px;
+      aspect-ratio: 1;
+      margin: 0 auto;
+    }
+    .box2{
+      padding: 44px 33px 20px 33px;
+    }
+    .confirmation{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      background: #262f38;
+      border-radius: 30px;
+      color:#fc7613;
+      padding: 10px 20px;
+      max-width: 192px;
+    }
+    .confirmation span{
+      padding: 0 2px;
+    }
+    .thank-you-content{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .get-in-touch{
+      font-size: .94rem !important;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .hide{
+      display: none;
+    }
+
+    /* media query */
+    @media screen and (max-width: 395px){
+      .container-box{
+        padding: 28px;
+        width: 300px;
+      }
+      #box2{
+       padding: 30px 22px;
+      }
+      .rating li{
+        width: 40px;
+        height: 40px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- Rating state start -->
+  <main>
+    <div class="container-box" id="box1">
+      <div class="start">
+        <svg width="17" height="16" xmlns="http://www.w3.org/2000/svg"><path d="m9.067.43 1.99 4.031c.112.228.33.386.58.422l4.45.647a.772.772 0 0 1 .427 1.316l-3.22 3.138a.773.773 0 0 0-.222.683l.76 4.431a.772.772 0 0 1-1.12.813l-3.98-2.092a.773.773 0 0 0-.718 0l-3.98 2.092a.772.772 0 0 1-1.119-.813l.76-4.431a.77.77 0 0 0-.222-.683L.233 6.846A.772.772 0 0 1 .661 5.53l4.449-.647a.772.772 0 0 0 .58-.422L7.68.43a.774.774 0 0 1 1.387 0Z" fill="#FC7614"/></svg>
+      </div>
+      <h2>How did we do?</h2>
+      <p>
+        Please let us know how we did with your support request. All feedback is appreciated 
+        to help us improve our offering!
+      </p>
+      <ul class="rating">
+        <li class="rating__item" data-rate="1">
+          1
+        </li>
+        <li class="rating__item" data-rate="2">
+          2
+        </li>
+        <li class="rating__item" data-rate="3">
+          3
+        </li>
+        <li class="rating__item" data-rate="4">
+          4
+        </li>
+        <li class="rating__item" data-rate="5">
+          5
+        </li>
+      </ul>
+      
+      <button class="btn btn-primary" id="submit">Submit</button>  
+    </div>
+    <div class="container-box box2 hide" id="box2">
+      <div class="img-container">
+        <img src="./images/illustration-thank-you.svg" alt="Thank you">
+      </div>
+      <div class="thank-you-content">
+        <p class="confirmation">You selected <span>4</span> out of 5</p>
+        <h2>Thank You!</h2>
+        <p class="get-in-touch">
+          We appreciate you taking the time to give a rating. If you ever need more support, 
+          don’t hesitate to get in touch!
+        </p>   
+      </div>
+    </div>
+    <div class="attribution">
+      <p>Coded by <a href="#">Daniel T. Wolela</a>.</p>
+    </div>
+  </main>
 
-  How did we do?
-
-  Please let us know how we did with your support request. All feedback is appreciated 
-  to help us improve our offering!
-
-  1 2 3 4 5
-
-  Submit
-
-  <!-- Rating state end -->
-
-  <!-- Thank you state start -->
-
-  You selected <!-- Add rating here --> out of 5
-
-  Thank you!
-
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!
-
-  <!-- Thank you state end -->
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <script src="./js/app.js"></script>
 </body>
 </html>
